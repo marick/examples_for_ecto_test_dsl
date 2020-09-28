@@ -1,2 +1,3 @@
-# tts_ecto_example
-A project that uses `transformer_test_support` with an Ecto/Phoenix database
+This is an example of using the Elixir
+[Transformer Test Support](https://github.com/marick/transformer_test_support)
+package with Ecto.
