@@ -8,17 +8,17 @@ defmodule Examples.Schemas.Basic.Validation do
       # ------VALID--------------------------------VALID-------------------
       ok: %{                                       
         params: to_strings(                        
-          lock_version: 1,                         
+          age: 1,                         
           date: "2001-01-01"),                     
         changeset: [                               
-          changes: [lock_version: 1, date: ~D[2001-01-01]],
+          changes: [age: 1, date: ~D[2001-01-01]],
         ],                                         
         categories: [:valid],
       },             
       # ------INVALID------------------------------INVALID-----------------
       error: %{
         params: like(:ok, except: [date: "1-1-1"]),
-        changeset: [                                                             
+        changeset: [
           errors: [date: ~r/invalid/],                                           
           no_changes: [:date]                                                    
         ],                                                                       

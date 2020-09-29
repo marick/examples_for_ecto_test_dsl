@@ -8,7 +8,7 @@ defmodule Examples.Schemas.Basic.AddLike do
       # -------------------------------------------VALID-------------------
       ok: %{
         params: to_strings(
-          lock_version: 1,
+          age: 1,
           date: "2001-01-01"), 
       },
       error: %{

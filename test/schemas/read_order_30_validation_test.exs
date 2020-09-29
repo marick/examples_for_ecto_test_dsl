@@ -6,7 +6,7 @@ defmodule App.Schemas.Basic.ValidationTest do
     test "valid dates are accepted" do
       Params.accept_example(:ok)
       |> assert_valid
-      |> assert_changes(lock_version: 1,
+      |> assert_changes(age: 1,
       date: ~D[2001-01-01])
     end
     

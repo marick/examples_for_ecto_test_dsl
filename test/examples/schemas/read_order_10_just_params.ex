@@ -8,12 +8,12 @@ defmodule Examples.Schemas.Basic.JustParams do
       # -------------------------------------------VALID-------------------
       ok: %{
         params: to_strings(
-          lock_version: 1,
+          age: 1,
           date: "2001-01-01"), 
       },
       error: %{
         params: to_strings(
-          lock_version: 1,
+          age: 1,
           date: "1-1-1"),
       }
     ])

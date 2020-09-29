@@ -3,14 +3,13 @@ defmodule App.Schemas.Basic do
   import Ecto.Changeset
 
   embedded_schema do
-    field :lock_version, :integer
+    field :age, :integer
     field :date, :date
-    timestamps()
   end
 
   def changeset(struct, params) do
     struct
-    |> cast(params, [:lock_version, :date])
-    |> validate_required(:date)
+    |> cast(params, [:age, :date])
+    |> validate_required([:age, :date])
   end
 end
