@@ -19,7 +19,7 @@ defmodule Examples.Schemas.Basic.Validation do
       error: %{
         params: like(:ok, except: [date: "1-1-1"]),
         changeset: [
-          errors: [date: ~r/invalid/],                                           
+          errors: [date: ~r/invalid/],
           no_changes: [:date]                                                    
         ],                                                                       
         categories: [:invalid],                                                  
