@@ -15,6 +15,7 @@ defmodule App.Schemas.Named do
     |> cast(params, [:id, :name, :date_string])
     |> validate_required([:name, :date_string])
     |> cast_date
+    |> unique_constraint(:name)
   end
 
 
