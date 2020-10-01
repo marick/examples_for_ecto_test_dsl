@@ -6,7 +6,7 @@ defmodule Examples.Schemas.Basic.JustParams__2 do
   def create_test_data() do
     start(
       module_under_test: Basic,
-      param_type: :http
+      format: :phoenix
     )
 
     category(                                         :valid,

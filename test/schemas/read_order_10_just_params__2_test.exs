@@ -10,9 +10,8 @@ defmodule App.Schemas.Basic.JustParams__2Test do
                       date: ~D[2001-01-01])
   end
 
-  @tag :skip
   test "invalid dates are rejected" do
-    Schema.changeset(%Schema{}, Params.params(:error))
+    Schema.changeset(%Schema{}, Params.params(:bad_date))
     |> assert_invalid
     |> assert_error(date: "is invalid")
   end
