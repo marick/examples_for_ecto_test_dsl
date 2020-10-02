@@ -1,4 +1,4 @@
-defmodule Examples.Schemas.Basic.JustParams__2 do
+defmodule Examples.Schemas.Basic.Validation__2 do
   alias App.Schemas.Basic, as: Basic
   use TransformerTestSupport.Impl.Predefines__2
   alias TransformerTestSupport.Variants.Changeset__2, as: Changeset
@@ -12,18 +12,22 @@ defmodule Examples.Schemas.Basic.JustParams__2 do
     )
 
     category(                                         :valid,
-      ok: [params: %{
-              age: 1,
-              date: "2001-01-01"
-           }
-          ])
+      ok: [
+        params:    %{age: 1, date: "2001-01-01"},
+        changeset: [
+          changes: %{age: 1, date: ~D[2001-01-01]}
+        ]
+      ])
 
     category(                                         :invalid,
-      bad_date: [params: %{
-                    age: 1,
-                    date: "2001-1-1"
-                 },
-                ])
+      bad_date: [
+        params:    %{age: 1, date: "2001-1-1"},
+        changeset: [
+          changes: %{age: 1},
+          no_changes: [:date],
+          errors: [date: ~r/invalid/],
+        ]
+      ])
   end
 end
 
