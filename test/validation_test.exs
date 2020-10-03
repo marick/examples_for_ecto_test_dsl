@@ -1,6 +1,6 @@
-defmodule App.Schemas.Basic.ValidationTest__2 do
+defmodule App.Schemas.Basic.ValidationTest do
   use App.Case
-  alias Examples.Schemas.Basic.Validation__2, as: Params
+  alias Examples.Schemas.Basic.Validation, as: Params
 
   test "first version" do 
     Params.validate(:ok)

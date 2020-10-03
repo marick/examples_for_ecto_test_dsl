@@ -1,7 +1,7 @@
-defmodule Examples.Schemas.Basic.Validation__2 do
+defmodule Examples.Schemas.Basic.Validation do
   alias App.Schemas.Basic, as: Basic
-  use TransformerTestSupport.Impl.Predefines__2
-  alias TransformerTestSupport.Variants.Changeset__2, as: Changeset
+  use TransformerTestSupport.Impl.Predefines
+  alias TransformerTestSupport.Variants.Changeset
 
 
   def create_test_data do 
@@ -25,7 +25,7 @@ defmodule Examples.Schemas.Basic.Validation__2 do
         changeset(
           changes: %{age: 1},
           no_changes: [:date],
-          errors: [date: ~r/invalid/],
+          errors: [date: ~r/invalid/]
         )]
       )
   end

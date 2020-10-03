@@ -1,7 +1,7 @@
-defmodule App.Schemas.Basic.JustParams__2Test do
+defmodule App.Schemas.Basic.JustParamsTest do
   use App.Case
   alias App.Schemas.Basic, as: Schema
-  alias Examples.Schemas.Basic.JustParams__2, as: Params
+  alias Examples.Schemas.Basic.JustParams, as: Params
 
   test "valid dates are accepted" do
     Schema.changeset(%Schema{}, Params.get_params(:ok))
