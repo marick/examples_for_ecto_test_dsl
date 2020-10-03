@@ -1,8 +1,6 @@
 defmodule Examples.Schemas.Basic.Validation do
   alias App.Schemas.Basic, as: Basic
-  use TransformerTestSupport.Impl.Predefines
-  alias TransformerTestSupport.Variants.Changeset
-
+  use TransformerTestSupport.Variants.Changeset
 
   def create_test_data do 
     start(

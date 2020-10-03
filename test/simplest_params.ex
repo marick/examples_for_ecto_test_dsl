@@ -1,7 +1,6 @@
 defmodule Examples.Schemas.Basic.JustParams do
   alias App.Schemas.Basic, as: Basic
-  use TransformerTestSupport.Impl.Predefines
-  alias TransformerTestSupport.Variants.Changeset, as: Changeset
+  use TransformerTestSupport.Variants.Changeset
 
 
   def create_test_data do 
