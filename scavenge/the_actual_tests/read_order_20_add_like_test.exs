@@ -4,14 +4,14 @@ defmodule App.Schemas.Basic.AddLikeTest do
   alias Examples.Schemas.Basic.AddLike, as: Params
 
   test "valid dates are accepted" do
-    Schema.changeset(%Schema{}, Params.params(:ok))
+    Schema.changeset(%Schema{}, Params.get_params(:ok))
     |> assert_valid
     |> assert_changes(age: 1,
                       date: ~D[2001-01-01])
   end
 
   test "invalid dates are rejected" do
-    Schema.changeset(%Schema{}, Params.params(:error))
+    Schema.changeset(%Schema{}, Params.get_params(:error))
     |> assert_invalid
     |> assert_error(date: "is invalid")
   end
