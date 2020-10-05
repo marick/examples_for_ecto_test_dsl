@@ -7,9 +7,8 @@ defmodule App.Schemas.Basic.ValidationTest do
     Params.validate(:bad_date)
   end
 
-  @tag :skip
   test "second version" do 
-    # Params.check_everything
+    Params.check_everything
   end
   
 end
