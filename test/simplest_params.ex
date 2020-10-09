@@ -1,4 +1,4 @@
-defmodule Examples.Schemas.Basic.JustParams do
+defmodule Examples.Schemas.Basic.Simplest do
   alias App.Schemas.Basic, as: Basic
   use TransformerTestSupport.Variants.Changeset
 

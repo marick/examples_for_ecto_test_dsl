@@ -1,11 +1,11 @@
-defmodule App.Schemas.Basic.JustParamsTest do
+defmodule App.Schemas.Basic.SimplestParamsTest do
   use App.Case
   alias App.Schemas.Basic, as: Schema
-  alias Examples.Schemas.Basic.JustParams.Tester
+  alias Examples.Schemas.Basic.Simplest.Tester
 
   # shell$ MIX_ENV=test iex -S mix
   # iex> TransformerTestSupport.start
-  # iex> alias Examples.Schemas.Basic.JustParams.Tester
+  # iex> alias Examples.Schemas.Basic.SimplestParams.Tester
   # iex> Tester.params(:ok)
   # %{"age" => "1", "date" => "2001-01-01"}
 
