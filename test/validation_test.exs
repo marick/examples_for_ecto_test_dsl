@@ -6,9 +6,4 @@ defmodule App.Schemas.Basic.ValidationTest do
     Tester.validate(:ok)
     Tester.validate(:bad_date)
   end
-
-  test "second version" do 
-    Tester.check_everything
-  end
-  
 end
