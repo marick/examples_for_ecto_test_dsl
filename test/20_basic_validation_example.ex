@@ -7,7 +7,7 @@ defmodule Examples.Schemas.Basic.Validation do
       module_under_test: Basic,
       format: :phoenix,
       variant: Changeset
-    )
+    ) |>
 
     category(                                         :valid,
       ok: [
@@ -15,7 +15,7 @@ defmodule Examples.Schemas.Basic.Validation do
         changeset(
           changes: %{age: 1, date: ~D[2001-01-01]}
         )]
-      )
+    ) |> 
 
     category(                                         :invalid,
       bad_date: [

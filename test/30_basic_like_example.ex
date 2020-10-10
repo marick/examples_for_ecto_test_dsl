@@ -7,7 +7,7 @@ defmodule Examples.Schemas.Basic.Like do
       module_under_test: Basic,
       format: :phoenix,
       variant: Changeset
-    )
+    ) |> 
 
     category(                                         :valid,
       ok: [
@@ -15,8 +15,8 @@ defmodule Examples.Schemas.Basic.Like do
         changeset(
           changes: %{age: 1, date: ~D[2001-01-01]}
         )]
-      )
-
+    ) |> 
+    
     category(                                         :invalid,
       bad_date: [
         params_like(:ok, except: [date: "2001-1-1"]),
@@ -24,7 +24,7 @@ defmodule Examples.Schemas.Basic.Like do
           no_changes: [:date],
           errors: [date: ~r/invalid/]
         )]
-      )
+    ) 
   end
 end
 
