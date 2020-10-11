@@ -5,8 +5,7 @@ defmodule Examples.Schemas.Basic.Validation do
   def create_test_data do 
     start(
       module_under_test: Basic,
-      format: :phoenix,
-      variant: Changeset
+      format: :phoenix
     ) |>
 
     category(                                         :valid,
