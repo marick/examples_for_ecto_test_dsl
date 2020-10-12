@@ -16,6 +16,8 @@ defmodule App.Schemas.Named do
     |> validate_required([:name, :date_string])
     |> cast_date
     |> unique_constraint(:name)
+    |> optimistic_lock(:lock_version)
+
   end
 
 
