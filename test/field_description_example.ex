@@ -1,6 +1,6 @@
 defmodule Examples.Schemas.Basic.FieldDescription do
   alias App.Schemas.Basic, as: Basic
-  use TransformerTestSupport.Variants.Changeset
+  use TransformerTestSupport.Variants.EctoClassic
   require TransformerTestSupport.Impl.Build
 
   def create_test_data do
