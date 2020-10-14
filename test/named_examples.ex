@@ -8,7 +8,7 @@ defmodule Examples.Schemas.Named do
       format: :phoenix
     ) |>
 
-    category(                                         :valid,
+    category(                                         :success,
       ok: [
         params(      name: "Bossie", date_string:   "2001-01-01"),
         changeset(

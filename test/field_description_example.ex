@@ -15,12 +15,12 @@ defmodule Examples.Schemas.Basic.FieldDescription do
       date: {Date, :from_iso8601!, [:date]}
     ) |> 
 
-    category(                                         :valid,
+    category(                                         :success,
       ok: [
         params(age: 1, date:   "2001-01-01"),
       ]) |> 
     
-    category(                                         :invalid,
+    category(                                         :validation_failure,
       bad_date: [
         params_like(:ok, except: [date: "2001-1-1"]),
         changeset(

@@ -8,7 +8,7 @@ defmodule Examples.Schemas.Basic.Validation do
       format: :phoenix
     ) |>
 
-    category(                                         :valid,
+    category(                                         :success,
       ok: [
         params(      age: 1, date:   "2001-01-01"),
         changeset(
@@ -16,7 +16,7 @@ defmodule Examples.Schemas.Basic.Validation do
         )]
     ) |> 
 
-    category(                                         :invalid,
+    category(                                         :validation_failure,
       bad_date: [
         params(    age: 1, date: "2001-1-1"),
         changeset(

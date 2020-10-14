@@ -8,7 +8,7 @@ defmodule Examples.Schemas.Basic.Like do
       format: :phoenix
     ) |> 
 
-    category(                                         :valid,
+    category(                                         :success,
       ok: [
         params(      age: 1, date:   "2001-01-01"),
         changeset(
@@ -16,7 +16,7 @@ defmodule Examples.Schemas.Basic.Like do
         )]
     ) |> 
     
-    category(                                         :invalid,
+    category(                                         :validation_failure,
       bad_date: [
         params_like(:ok, except: [date: "2001-1-1"]),
         changeset(
