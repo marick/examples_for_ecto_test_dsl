@@ -10,7 +10,7 @@ defmodule Examples.Schemas.Basic.FieldDescription do
       format: :phoenix
     ) |>
 
-    field_transformations(Basic,
+    field_transformations(
       age: :as_cast,
       date: {Date, :from_iso8601!, [:date]}
     ) |> 
