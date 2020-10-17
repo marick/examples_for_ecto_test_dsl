@@ -4,16 +4,12 @@ defmodule Examples.Schemas.Basic.FieldDescription do
   require TransformerTestSupport.Impl.Build
 
   def create_test_data do
-
     start(
       module_under_test: Basic,
       format: :phoenix
     ) |>
 
-    field_transformations(
-      age: :as_cast,
-      date: {Date, :from_iso8601!, [:date]}
-    ) |> 
+    field_transformations(as_cast: [:age, :date]) |> 
 
     category(                                         :success,
       ok: [
@@ -23,10 +19,6 @@ defmodule Examples.Schemas.Basic.FieldDescription do
     category(                                         :validation_failure,
       bad_date: [
         params_like(:ok, except: [date: "2001-1-1"]),
-        changeset(
-          no_changes: [:date],
-          errors: [date: ~r/invalid/]
-        ),
       ])
   end
 end
