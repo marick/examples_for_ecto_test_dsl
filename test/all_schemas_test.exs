@@ -1,20 +1,18 @@
 defmodule App.Schemas.AllSchemasTest do
   use ExUnit.Case, async: true
-  import TransformerTestSupport.Macros
+  import TransformerTestSupport.Tester
 
-  @module_name_regex ~r/^.*defmodule[\s]+([.\w]+)/
+  # To check a bunch of examples in a bunch of files.
+  # This will generate one ExUnit `test` for each example.
+
+  check_examples_in_files("test/*example.ex")
+
+  # To check the examples in a single module:
+
+  # check_examples_with(Examples.Schemas.Basic.Validation.Tester)
+
+  # The above can't be uncompiled because it generates tests with
+  # the same names as some of the `check_examples_in_files` tests.
   
-  for path <- Path.wildcard("test/*example.ex") do
-    first_line = File.open!(path, [:read]) |> IO.read(:line)
-
-    case Regex.run(@module_name_regex, first_line) do
-      [_all, module_name] ->
-        module_name 
-        |> Module.safe_concat("Tester")
-        |> check_examples_with
-      _ ->
-        raise ~s/Could not find the module name inside file "#{path}"/
-    end
-  end
 end
 
