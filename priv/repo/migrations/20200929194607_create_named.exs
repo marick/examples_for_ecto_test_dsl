@@ -5,7 +5,8 @@ defmodule App.Repo.Migrations.CreateNamed do
     create table(:named) do
       add :name, :string
       add :date, :date
-      add :lock_version, :integer, default: 1
+      add :days_since_2000, :integer
+      add :lock_uuid, :uuid
 
       timestamps()
     end

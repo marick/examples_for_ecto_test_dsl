@@ -6,7 +6,8 @@ defmodule App.Schemas.Named do
     field :name, :string
     field :date_string, :string, virtual: true
     field :date, :date
-    field :lock_version, :integer
+    field :days_since_2000, :integer
+    field :lock_uuid, Ecto.UUID
     timestamps()
   end
 
@@ -16,8 +17,7 @@ defmodule App.Schemas.Named do
     |> validate_required([:name, :date_string])
     |> cast_date
     |> unique_constraint(:name)
-    |> optimistic_lock(:lock_version)
-
+    |> optimistic_lock(:lock_uuid, fn _ -> Ecto.UUID.generate end)
   end
 
 

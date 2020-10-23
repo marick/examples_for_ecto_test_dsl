@@ -9,7 +9,7 @@ defmodule Examples.Schemas.Named do
     ) |>
 
     field_transformations(
-      as_cast: [:name, :date_string, :lock_version],
+      as_cast: [:name, :date_string, :lock_uuid],
       date: on_success(&Date.from_iso8601!/1, applied_to: :date_string)
     ) |> 
 
