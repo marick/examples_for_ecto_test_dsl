@@ -16,6 +16,7 @@ defmodule App.Schemas.Named do
     |> cast(params, [:id, :name, :date_string])
     |> validate_required([:name, :date_string])
     |> cast_date
+    |> count_the_days
     |> unique_constraint(:name)
     |> optimistic_lock(:lock_uuid, fn _ -> Ecto.UUID.generate end)
   end
@@ -27,6 +28,20 @@ defmodule App.Schemas.Named do
         put_change(changeset, :date, date)
       {:error, _} ->
         add_error(changeset, :date_string, "is not a valid date")
+    end
+  end
+
+  @start_date ~D[2000-01-01]
+
+  defp count_the_days(changeset) do
+    cond do
+      Keyword.has_key?(changeset.errors, :date_string) ->
+        changeset
+      Date.compare(changeset.changes.date, @start_date) == :lt ->
+        add_error(changeset, :date_string, "must be this century")
+      true -> 
+        days = Date.diff(changeset.changes.date, @start_date)
+        put_change(changeset, :days_since_2000, days)
     end
   end
   
