@@ -16,11 +16,18 @@ defmodule Examples.Schemas.Basic.Simplest do
       ]) |> 
 
     category(                                         :validation_failure,
-      bad_date: [
+      invalid: [
         params(
-          age: 1,
+          age: "32a",
           date: "2001-1-1"),
-      ])
+      ],
+      empty: [
+        params(
+          age: "",
+          date: ""),
+      ],
+      missing: [params()]
+    )      
   end
 end
 

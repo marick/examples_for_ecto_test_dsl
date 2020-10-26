@@ -16,9 +16,26 @@ defmodule App.Schemas.Basic.SimplestParamsTest do
                       date: ~D[2001-01-01])
   end
 
-  test "invalid dates are rejected" do
-    Schema.changeset(%Schema{}, Tester.params(:bad_date))
+  test "invalid inputs" do
+    Schema.changeset(%Schema{}, Tester.params(:invalid))
     |> assert_invalid
-    |> assert_error(date: "is invalid")
+    |> assert_errors(date: "is invalid",
+                     age: "is invalid")
+  end
+
+
+  test "empty inputs" do
+    Schema.changeset(%Schema{}, Tester.params(:empty))
+    |> assert_invalid
+    |> assert_errors(date: "can't be blank",
+                     age: "can't be blank")
+  end
+
+
+  test "missing inputs" do
+    Schema.changeset(%Schema{}, Tester.params(:missing))
+    |> assert_invalid
+    |> assert_errors(date: "can't be blank",
+                     age: "can't be blank")
   end
 end
