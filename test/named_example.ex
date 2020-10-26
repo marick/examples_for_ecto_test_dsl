@@ -22,7 +22,7 @@ defmodule Examples.Schemas.Named do
       ]
     )
 
-    |> category(                                         :validation_failure,
+    |> category(                                         :validation_error,
       format: [
         params_like(:ok, except: [date_string: "2001-01-0"]),
         changeset(

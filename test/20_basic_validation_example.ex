@@ -16,7 +16,7 @@ defmodule Examples.Schemas.Basic.Validation do
         )]
     ) |> 
 
-    category(                                         :validation_failure,
+    category(                                         :validation_error,
       bad_date: [
         params(    age: 1, date: "2001-1-1"),
         changeset(

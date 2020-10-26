@@ -16,7 +16,7 @@ defmodule Examples.Schemas.Basic.Like do
         )]
     ) |> 
     
-    category(                                         :validation_failure,
+    category(                                         :validation_error,
       bad_date: [
         params_like(:ok, except: [date: "2001-1-1"]),
         changeset(

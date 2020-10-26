@@ -15,7 +15,7 @@ defmodule Examples.Schemas.Basic.Simplest do
           date: "2001-01-01")
       ]) |> 
 
-    category(                                         :validation_failure,
+    category(                                         :validation_error,
       invalid: [
         params(
           age: "32a",

@@ -15,7 +15,7 @@ defmodule Examples.Schemas.Basic.FieldDescription do
         params(age: 1, date:   "2001-01-01"),
       ]) |> 
     
-    category(                                         :validation_failure,
+    category(                                         :validation_error,
       bad_date: [
         params_like(:ok, except: [date: "2001-1-1"]),
       ])
