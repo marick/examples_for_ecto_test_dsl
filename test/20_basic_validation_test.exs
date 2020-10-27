@@ -3,8 +3,8 @@ defmodule App.Schemas.Basic.ValidationTest do
   alias Examples.Schemas.Basic.Validation.Tester
 
   test "first version" do 
-    Tester.validate(:ok)
-    Tester.validate(:bad_date)
+    Tester.check_workflow(:ok)
+    Tester.check_workflow(:bad_date)
   end
 
   # To check the examples in a single module:
