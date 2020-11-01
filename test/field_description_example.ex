@@ -10,7 +10,7 @@ defmodule Examples.Schemas.Basic.FieldDescription do
 
     field_transformations(as_cast: [:age, :date]) |> 
 
-    category(                                         :success,
+    category(                                         :validation_success,
       ok: [
         params(age: 1, date:   "2001-01-01"),
       ]) |> 

@@ -5,7 +5,8 @@ defmodule Examples.Schemas.Named do
   def create_test_data do 
     start(
       module_under_test: Named,
-      format: :phoenix
+      format: :phoenix,
+      repo: App.Repo
     )
 
     |> field_transformations(

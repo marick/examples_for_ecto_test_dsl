@@ -8,7 +8,7 @@ defmodule Examples.Schemas.Basic.Like do
       format: :phoenix
     ) |> 
 
-    category(                                         :success,
+    category(                                         :validation_success,
       ok: [
         params(      age: 1, date:   "2001-01-01"),
         changeset(

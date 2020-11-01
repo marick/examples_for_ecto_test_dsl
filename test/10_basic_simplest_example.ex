@@ -8,7 +8,7 @@ defmodule Examples.Schemas.Basic.Simplest do
       format: :phoenix
     ) |> 
 
-    category(                                         :success,
+    category(                                         :validation_success,
       ok: [
         params(
           age: 1,
