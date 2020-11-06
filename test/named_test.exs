@@ -1,6 +1,15 @@
 defmodule App.Schemas.NamedTest do
-  use App.EctoCase
-  # alias Examples.Schemas.Named.Tester
-  # alias App.Schemas.Named, as: Named
-  
+  use App.EctoCase, async: true
+  alias Examples.Schemas.Named.Tester
+  import TransformerTestSupport.Runner
+
+  test "just show separate tests yet again" do 
+    Tester.check_workflow(:ok)
+  end
+
+  test "and yet again" do 
+    Tester.check_workflow(:duplicate_name)
+  end
+
+  check_examples_with(Tester)
 end

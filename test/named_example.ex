@@ -40,6 +40,13 @@ defmodule Examples.Schemas.Named do
         ),
       ]
     )
+
+    |> category(                                         :constraint_error,
+       duplicate_name: [
+         duplicate(:ok),
+         constraint_changeset(error: [name: "has already been taken"])
+       ]
+    )
   end
 end
 

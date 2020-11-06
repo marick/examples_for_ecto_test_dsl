@@ -5,6 +5,8 @@ defmodule App.Schemas.Named do
   schema "named" do
     field :name, :string
     field :date_string, :string, virtual: true
+
+    # calculated
     field :date, :date
     field :days_since_2000, :integer
     field :lock_uuid, Ecto.UUID
