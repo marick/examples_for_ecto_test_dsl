@@ -3,10 +3,10 @@ defmodule App.Repo.Migrations.CreateNamed do
 
   def change do
     create table(:named) do
-      add :name, :string
-      add :date, :date
-      add :days_since_2000, :integer
-      add :lock_uuid, :uuid
+      add :name,            :string,  null: false
+      add :date,            :date,    null: false
+      add :days_since_2000, :integer, null: false
+      add :lock_uuid,       :uuid,    null: false
 
       timestamps()
     end
