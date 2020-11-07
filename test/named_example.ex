@@ -10,7 +10,7 @@ defmodule Examples.Schemas.Named do
     )
 
     |> field_transformations(
-      as_cast: [:name, :date_string, :lock_uuid],
+      as_cast: [:name, :date_string],
       date: on_success(
         Date.from_iso8601!(:date_string)),
       days_since_2000: on_success(

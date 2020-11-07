@@ -9,7 +9,6 @@ defmodule App.Schemas.Named do
     # calculated
     field :date, :date
     field :days_since_2000, :integer
-    field :lock_uuid, Ecto.UUID
     timestamps()
   end
 
@@ -20,7 +19,6 @@ defmodule App.Schemas.Named do
     |> cast_date
     |> count_the_days
     |> unique_constraint(:name)
-    |> optimistic_lock(:lock_uuid, fn _ -> Ecto.UUID.generate end)
   end
 
 
