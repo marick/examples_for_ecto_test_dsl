@@ -1,9 +1,10 @@
-defmodule App.Schemas.Named do
+defmodule App.Schemas10.Named do
   use Ecto.Schema
   import Ecto.Changeset
 
   schema "named" do
     field :name, :string
+    field :age, :integer
     field :date_string, :string, virtual: true
 
     # calculated
@@ -14,8 +15,8 @@ defmodule App.Schemas.Named do
 
   def changeset(struct, params) do
     struct
-    |> cast(params, [:id, :name, :date_string])
-    |> validate_required([:name, :date_string])
+    |> cast(params, [:id, :name, :date_string, :age])
+    |> validate_required([:name, :date_string, :age])
     |> cast_date
     |> count_the_days
     |> unique_constraint(:name)
@@ -44,5 +45,4 @@ defmodule App.Schemas.Named do
         put_change(changeset, :days_since_2000, days)
     end
   end
-  
 end
