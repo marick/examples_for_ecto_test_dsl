@@ -17,13 +17,13 @@ defmodule Examples.Schemas.Named do
         Date.diff(:date, ~D[2000-01-01])
     ))
 
-    |> category(                                         :success,
+    |> workflow(                                         :success,
       ok: [
         params(      name: "Bossie", date_string:   "2001-01-01"),
       ]
     )
 
-    |> category(                                         :validation_error,
+    |> workflow(                                         :validation_error,
       format: [
         params_like(:ok, except: [date_string: "2001-01-0"]),
         changeset(
@@ -41,7 +41,7 @@ defmodule Examples.Schemas.Named do
       ]
     )
 
-    |> category(                                         :constraint_error,
+    |> workflow(                                         :constraint_error,
        duplicate_name: [
          insert_twice(:ok),
          constraint_changeset(error: [name: "has already been taken"])

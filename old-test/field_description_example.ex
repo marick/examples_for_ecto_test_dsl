@@ -10,12 +10,12 @@ defmodule Examples.Schemas.Basic.FieldDescription do
 
     field_transformations(as_cast: [:age, :date]) |> 
 
-    category(                                         :validation_success,
+    workflow(                                         :validation_success,
       ok: [
         params(age: 1, date:   "2001-01-01"),
       ]) |> 
     
-    category(                                         :validation_error,
+    workflow(                                         :validation_error,
       bad_date: [
         params_like(:ok, except: [date: "2001-1-1"]),
       ])

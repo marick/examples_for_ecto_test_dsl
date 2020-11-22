@@ -8,7 +8,7 @@ defmodule Examples.Schemas.Basic.Validation do
       format: :phoenix
     ) |>
 
-    category(                                         :validation_success,
+    workflow(                                         :validation_success,
       ok: [
         params(      age: 1, date:   "2001-01-01"),
         changeset(
@@ -16,7 +16,7 @@ defmodule Examples.Schemas.Basic.Validation do
         )]
     ) |> 
 
-    category(                                         :validation_error,
+    workflow(                                         :validation_error,
       bad_date: [
         params(    age: 1, date: "2001-1-1"),
         changeset(

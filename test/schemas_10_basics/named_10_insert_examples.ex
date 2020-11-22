@@ -10,13 +10,13 @@ defmodule Examples.Schemas10.Named.Insert do
       action: :insert
     ) |>
 
-    category(                                         :success,
+    workflow(                                         :success,
       bossie: [
         params(name: "Bossie", age: 10, date_string: "2001-01-01"),
       ]
     ) |>
     
-    category(                                         :validation_error,
+    workflow(                                         :validation_error,
       format: [
         params_like(:bossie, except: [date_string: "2001-01-0"]),
         changeset(
@@ -26,9 +26,9 @@ defmodule Examples.Schemas10.Named.Insert do
       ]
     ) |>
 
-    category(                                         :constraint_error,
+    workflow(                                         :constraint_error,
       duplicate_name: [
-        setup(insert: :bossie),
+        previously(insert: :bossie),
         params_like(:bossie),
         constraint_changeset(error: [name: "has already been taken"])
       ],

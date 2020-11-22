@@ -11,19 +11,19 @@ defmodule Examples.Schemas.Species do
 
     |> field_transformations(as_cast: [:id, :name])
 
-    |> category(                                         :success,
+    |> workflow(                                         :success,
       bovine: [params(name: "bovine")],
       equine: [params(name: "equine")]
     )
 
-    |> category(                                         :validation_error,
+    |> workflow(                                         :validation_error,
       empty: [params(),
               changeset(
                 no_changes: [:name],
                 error: [name: "can't be blank"])]
     )
 
-    |> category(                                         :constraint_error,
+    |> workflow(                                         :constraint_error,
        duplicate_name: [
          insert_twice(:bovine),
          constraint_changeset(error: [name: "has already been taken"])

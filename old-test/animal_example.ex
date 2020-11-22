@@ -14,7 +14,7 @@ defmodule Examples.Schemas.Animal do
       as_cast: [:name, :notes, :lock_uuid, :species_id]
     )
 
-    |> category(                                              :success,
+    |> workflow(                                              :success,
       note_free: [params(name: "Bossie",
                          notes: "",
                          species_id: id_of(bovine: Species))],
@@ -22,7 +22,7 @@ defmodule Examples.Schemas.Animal do
       with_notes: [params_like(:note_free, except: [notes: "gelding"])]
     )
 
-    |> category(                                         :constraint_error,
+    |> workflow(                                         :constraint_error,
        duplicate_name: [
          insert_twice(:note_free),
          # NOTE that constraint changeset should only check the errors,

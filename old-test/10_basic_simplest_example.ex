@@ -8,14 +8,14 @@ defmodule Examples.Schemas.Basic.Simplest do
       format: :phoenix
     ) |> 
 
-    category(                                         :validation_success,
+    workflow(                                         :validation_success,
       ok: [
         params(
           age: 1,
           date: "2001-01-01")
       ]) |> 
 
-    category(                                         :validation_error,
+    workflow(                                         :validation_error,
       invalid: [
         params(
           age: "32a",
