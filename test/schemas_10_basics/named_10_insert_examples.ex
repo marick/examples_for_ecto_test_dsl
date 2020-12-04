@@ -1,23 +1,25 @@
 defmodule Examples.Schemas10.Named.Insert do
   alias App.Schemas10.Named, as: Named
-  use TransformerTestSupport.Variants.EctoClassic
+  use TransformerTestSupport.Variants.EctoClassic.Insert
 
   def create_test_data do 
     start(
       module_under_test: Named,
       format: :phoenix,
-      repo: App.Repo,
-      action: :insert
+      repo: App.Repo
     ) |>
 
     workflow(                                         :success,
       bossie: [
-        params(name: "Bossie", age: 10, date_string: "2001-01-01"),
+        params(name: "Bossie", age: 10, date_string: "2000-01-10"),
+        changeset(changes: [
+                    name: "Bossie", age: 10, date_string: "2000-01-10",
+                    date: ~D[2000-01-10], days_since_2000: 9])
       ]
     ) |>
     
     workflow(                                         :validation_error,
-      format: [
+      bad_format: [
         params_like(:bossie, except: [date_string: "2001-01-0"]),
         changeset(
           no_changes: [:date, :days_since_2000],

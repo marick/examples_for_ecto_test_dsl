@@ -1,8 +1,8 @@
 defmodule Examples.OneExampleTest do
   use App.EctoCase, async: true
 
-  test "first version" do 
+  test "one" do 
     alias Examples.Schemas10.Named.Insert.Tester
-    Tester.check_workflow(:bossie, trace: true)
+    Tester.check_workflow(:duplicate_name)
   end
 end
