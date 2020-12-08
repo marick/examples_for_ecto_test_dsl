@@ -5,7 +5,6 @@ defmodule Examples.Schemas10.Named.Insert do
   def create_test_data do 
     start(
       module_under_test: Named,
-      format: :phoenix,
       repo: App.Repo
     ) |>
 
