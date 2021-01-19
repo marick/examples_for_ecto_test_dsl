@@ -3,6 +3,6 @@ defmodule Examples.OneExampleTest do
 
   test "one" do 
     alias Examples.Schemas10.Named.Insert.Tester
-    Tester.check_workflow(:duplicate_name)
+    Tester.check_workflow(:bad_format, trace: false)
   end
 end
