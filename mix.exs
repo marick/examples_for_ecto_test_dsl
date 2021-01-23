@@ -32,7 +32,7 @@ defmodule App.MixProject do
       {:postgrex, ">= 0.0.0"},
 
       {:transformer_test_support, "~> 0.1",
-       path: "/Users/bem/src/transformer_test_support",
+       path: "/Users/bem/src/ecto_test_dsl",
        only: :test
       },
       # {:dep_from_hexpm, "~> 0.3.0"},

@@ -2,7 +2,7 @@ defmodule Examples.Schemas20.Animal.Insert do
   alias App.Schemas20, as: Schemas
   alias Examples.Schemas20.Species
 
-  use TransformerTestSupport.Variants.EctoClassic.Insert
+  use TransformerTestSupport.Variants.PhoenixClassic.Insert
   
   def create_test_data do 
     start(
