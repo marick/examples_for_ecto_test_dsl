@@ -17,7 +17,10 @@ defmodule Examples.Schemas20.Animal.Insert do
 
     |> workflow(                                              :success,
       note_free: [params(name: "Bossie",
-                         species_id: id_of(bovine: Species.Insert))],
+                         species_id: id_of(bovine: Species.Insert)),
+                  fields(name: "Bossie",
+                         species_id: id_of(bovine: Species.Insert))
+                 ],
 
       with_notes: [params_like(:note_free, except: [notes: "gelding"])]
     )
