@@ -1,6 +1,6 @@
 defmodule Examples.Schemas.Basic.Simplest do
   alias App.Schemas.Basic, as: Basic
-  use EctoTestDSL.Variants.PhoenixClassic
+  use EctoTestDSL.Variants.PhoenixGranular
 
   def create_test_data do 
     start(

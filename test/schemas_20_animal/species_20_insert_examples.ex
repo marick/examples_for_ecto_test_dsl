@@ -1,6 +1,6 @@
 defmodule Examples.Schemas20.Species.Insert do
   alias App.Schemas20.Species
-  use EctoTestDSL.Variants.PhoenixClassic.Insert
+  use EctoTestDSL.Variants.PhoenixGranular.Insert
 
   def create_test_data do 
     start(
