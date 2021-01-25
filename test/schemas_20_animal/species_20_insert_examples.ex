@@ -1,6 +1,6 @@
 defmodule Examples.Schemas20.Species.Insert do
   alias App.Schemas20.Species
-  use TransformerTestSupport.Variants.PhoenixClassic.Insert
+  use EctoTestDSL.Variants.PhoenixClassic.Insert
 
   def create_test_data do 
     start(

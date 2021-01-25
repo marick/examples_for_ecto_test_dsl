@@ -1,6 +1,6 @@
 defmodule App.Schemas.AllSchemasTest do
   use ExUnit.Case, async: true
-  import TransformerTestSupport.Runner
+  import EctoTestDSL.Runner
 
   # To check a bunch of examples in a bunch of files.
   # This will generate one ExUnit `test` for each example.

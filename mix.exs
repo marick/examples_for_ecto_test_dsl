@@ -31,7 +31,7 @@ defmodule App.MixProject do
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
 
-      {:transformer_test_support, "~> 0.1",
+      {:ecto_test_dsl, "~> 0.1",
        path: "/Users/bem/src/ecto_test_dsl",
        only: :test
       },

@@ -1,7 +1,7 @@
 defmodule App.Schemas.NamedTest do
   use App.EctoCase, async: true
   alias Examples.Schemas.Named.Tester
-  import TransformerTestSupport.Runner
+  import EctoTestDSL.Runner
 
   test "just show separate tests yet again" do 
     Tester.check_workflow(:ok)
