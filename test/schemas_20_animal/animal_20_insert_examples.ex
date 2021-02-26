@@ -1,6 +1,6 @@
-defmodule Examples.Schemas20.Animal.Insert do
+defmodule Examples.Schemas20.Insert.Animal do
   alias App.Schemas20, as: Schemas
-  alias Examples.Schemas20.Species
+  alias Examples.Schemas20.Insert
 
   use EctoTestDSL.Variants.PhoenixGranular.Insert
   
@@ -17,9 +17,9 @@ defmodule Examples.Schemas20.Animal.Insert do
 
     |> workflow(                                              :success,
       note_free: [params(name: "Bossie",
-                         species_id: id_of(bovine: Species.Insert)),
+                         species_id: id_of(bovine: Insert.Species)),
                   fields(name: "Bossie",
-                         species_id: id_of(bovine: Species.Insert))
+                         species_id: id_of(bovine: Insert.Species))
                  ],
 
       with_notes: [params_like(:note_free, except: [notes: "gelding"])]

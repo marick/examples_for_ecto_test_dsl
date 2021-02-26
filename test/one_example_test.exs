@@ -2,7 +2,7 @@ defmodule Examples.OneExampleTest do
   use App.EctoCase, async: true
 
   test "one" do 
-    alias Examples.Schemas10.Named.Insert.Tester
-    Tester.check_workflow(:duplicate_name_better, trace: true)
+    alias Examples.Schemas20.Update.Animal.Tester
+    Tester.check_workflow(:add_note_to_animal, trace: true)
   end
 end

@@ -1,10 +1,11 @@
-defmodule Examples.Schemas20.Species.Insert do
-  alias App.Schemas20.Species
+defmodule Examples.Schemas20.Insert.Species do
+  alias App.Schemas20, as: Schemas
+
   use EctoTestDSL.Variants.PhoenixGranular.Insert
 
   def create_test_data do 
     start(
-      module_under_test: Species,
+      module_under_test: Schemas.Species,
       format: :phoenix,
       repo: App.Repo
     )
