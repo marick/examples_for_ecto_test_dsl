@@ -13,7 +13,8 @@ defmodule Examples.Schemas20.Insert.Species do
     |> field_transformations(as_cast: [:id, :name])
 
     |> workflow(                                         :success,
-      bovine: [params(name: "bovine")],
+      bovine: [params(name: "bovine"),
+               fields(name: "bovine")],
       equine: [params(name: "equine")]
     )
 
