@@ -5,6 +5,7 @@ defmodule Example.HybridInsertTest do
   use FlowAssertions.Ecto
   alias Examples.Schemas20.Insert.Animal.Tester
   alias App.Schemas20, as: Schemas
+  
 
   test "fetching params" do
     params = Tester.params(:note_free) # |> IO.inspect
@@ -70,5 +71,25 @@ defmodule Example.HybridInsertTest do
       fn ->
         Tester.inserted(:duplicate_name)
       end)
+  end
+
+  test "every workflow returns the result of each of its steps" do
+    result = Tester.check_workflow(:note_free) # |> IO.inspect
+    
+    #   field_checks: :uninteresting_result,
+    #   ok_content: %App.Schemas20.Animal{...}
+    #   try_changeset_insertion: {:ok, %App.Schemas20.Animal{...}}
+    #   field_calculation_checks: :uninteresting_result,
+    #   as_cast_checks: :uninteresting_result,
+    #   example_specific_changeset_checks: :uninteresting_result,
+    #   assert_valid_changeset: :uninteresting_result,
+    #   changeset_from_params: #Ecto.Changeset<...>
+    #   params: %{...},
+    #   repo_setup: %{...}
+    #   example: %{...}
+
+    assert Keyword.has_key?(result, :params)
+    assert Keyword.has_key?(result, :changeset_from_params)
+    assert Keyword.has_key?(result, :try_changeset_insertion)
   end
 end
