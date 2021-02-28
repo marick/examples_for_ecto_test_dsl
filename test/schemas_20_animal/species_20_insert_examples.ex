@@ -6,15 +6,13 @@ defmodule Examples.Schemas20.Insert.Species do
   def create_test_data do 
     start(
       module_under_test: Schemas.Species,
-      format: :phoenix,
       repo: App.Repo
     )
 
     |> field_transformations(as_cast: [:id, :name])
 
     |> workflow(                                         :success,
-      bovine: [params(name: "bovine"),
-               fields(name: "bovine")],
+      bovine: [params(name: "bovine")],
       equine: [params(name: "equine")]
     )
 

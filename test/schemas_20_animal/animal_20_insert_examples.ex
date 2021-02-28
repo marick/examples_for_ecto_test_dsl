@@ -7,18 +7,16 @@ defmodule Examples.Schemas20.Insert.Animal do
   def create_test_data do 
     start(
       module_under_test: Schemas.Animal,
-      format: :phoenix,
       repo: App.Repo
-    )
+    ) |>
 
-    |> field_transformations(
+    field_transformations(
       as_cast: [:name, :notes, :lock_uuid, :species_id]
-    )
+    ) |>
 
-    |> workflow(                                              :success,
+    workflow(                                              :success,
       note_free: [params(name: "Bossie",
-                         species_id: id_of(bovine: Insert.Species)),
-                  fields(name: "Bossie",
+                         notes: "",
                          species_id: id_of(bovine: Insert.Species))
                  ],
 
