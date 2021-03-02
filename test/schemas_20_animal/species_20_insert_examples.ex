@@ -7,23 +7,23 @@ defmodule Examples.Schemas20.Insert.Species do
     start(
       module_under_test: Schemas.Species,
       repo: App.Repo
-    )
+    ) |> 
 
-    |> field_transformations(as_cast: [:id, :name])
+    field_transformations(as_cast: [:id, :name]) |> 
 
-    |> workflow(                                         :success,
+    workflow(                                         :success,
       bovine: [params(name: "bovine")],
       equine: [params(name: "equine")]
-    )
+    ) |> 
 
-    |> workflow(                                         :validation_error,
+    workflow(                                         :validation_error,
       empty: [params(),
               changeset(
                 no_changes: [:name],
                 error: [name: "can't be blank"])]
-    )
+    ) |> 
 
-    |> workflow(                                         :constraint_error,
+    workflow(                                         :constraint_error,
        duplicate_name: [
          insert_twice(:bovine),
          constraint_changeset(error: [name: "has already been taken"])
