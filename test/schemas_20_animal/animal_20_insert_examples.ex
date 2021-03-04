@@ -11,16 +11,20 @@ defmodule Examples.Schemas20.Insert.Animal do
     ) |>
 
     field_transformations(
-      as_cast: [:name, :notes, :lock_uuid, :species_id]
+      as_cast: [:name, :lock_uuid, :species_id]
     ) |>
 
     workflow(                                              :success,
       note_free: [params(name: "Bossie",
-                         notes: "",
+                         notes: [],
                          species_id: id_of(bovine: Insert.Species))
                  ],
 
-      with_notes: [params_like(:note_free, except: [notes: "gelding"])]
+      with_notes: [params_like(:note_free, except:
+                      [notes: [params_like(:note_free)]]),
+                  run: :skip]
+
+#                                  %{text: "gelding"}]])]
     )
 
     |> workflow(                                         :constraint_error,

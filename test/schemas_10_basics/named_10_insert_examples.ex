@@ -6,7 +6,7 @@ defmodule Examples.Schemas10.Named.Insert do
     start(
       module_under_test: Named,
       repo: App.Repo
-    ) |>
+    )
 
     workflow(                                         :success,
       bossie: [
@@ -15,7 +15,7 @@ defmodule Examples.Schemas10.Named.Insert do
                     name: "Bossie", age: 10, date_string: "2000-01-10",
                     date: ~D[2000-01-10], days_since_2000: 9])
       ]
-    ) |>
+    )
     
     workflow(                                         :validation_error,
       bad_format: [
@@ -25,7 +25,7 @@ defmodule Examples.Schemas10.Named.Insert do
           error: [date_string: "is not a valid date"]
         ),
       ]
-    ) |>
+    )
 
     workflow(                                         :constraint_error,
       duplicate_name: [

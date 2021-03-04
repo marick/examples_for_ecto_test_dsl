@@ -12,13 +12,14 @@
       module_under_test: Schemas.Animal,
       repo: App.Repo,
       usually_ignore: [:lock_uuid, :inserted_at, :updated_at]
-    ) |> 
+    )
 
     workflow(                                              :success,
       add_note_to_animal: [
         params_from_repo(note_free_animal, except: [notes: "gelding"]),
         changeset(changes: [notes: "gelding"]),
-        fields_like(note_free_animal, except: [notes: "gelding"])
+        fields_like(note_free_animal, except: [notes: "gelding"]),
+        run: :skip
       ]
     #   # add_note_better: [
     #   #   assert_update(note_free, notes: "gelding")

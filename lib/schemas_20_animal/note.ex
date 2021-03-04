@@ -6,13 +6,13 @@ defmodule App.Schemas20.Note do
   schema "notes" do
     field :text, :string
     field :date, :date
-
-    # calculated
-    timestamps()
+    belongs_to :animal, Schemas.Animal
   end
 
   def changeset(struct, params) do
     struct
-    |> cast(params, [:string, :id])
+    |> cast(params, [:text, :id, :animal_id])
+    |> validate_required([:text])
+    |> put_change(:date, Date.utc_today)
   end
 end
