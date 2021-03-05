@@ -8,11 +8,11 @@ defmodule Examples.Schemas20.Insert.Animal do
     start(
       module_under_test: Schemas.Animal,
       repo: App.Repo
-    ) |>
+    )
 
     field_transformations(
       as_cast: [:name, :lock_uuid, :species_id]
-    ) |>
+    )
 
     workflow(                                              :success,
       note_free: [params(name: "Bossie",
@@ -27,7 +27,7 @@ defmodule Examples.Schemas20.Insert.Animal do
 #                                  %{text: "gelding"}]])]
     )
 
-    |> workflow(                                         :constraint_error,
+    workflow(                                         :constraint_error,
        duplicate_name: [
          insert_twice(:note_free),
          # NOTE that constraint changeset should only check the errors,

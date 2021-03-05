@@ -7,7 +7,7 @@ defmodule Examples.Schemas20.Insert.Note do
     start(
       module_under_test: Schemas.Note,
       repo: App.Repo
-    ) |> 
+    ) 
 
     field_transformations(
       as_cast: [:id, :text, :animal_id] ) 
