@@ -14,15 +14,17 @@ defmodule Examples.Schemas20.Insert.Animal do
       as_cast: [:name, :lock_uuid, :species_id]
     )
 
+    
     workflow(                                              :success,
       note_free: [params(name: "Bossie",
                          notes: [],
                          species_id: id_of(bovine: Insert.Species))
                  ],
 
-      with_notes: [params_like(:note_free, except:
-                      [notes: [params_like(:note_free)]]),
-                  run: :skip]
+      with_notes: [params_like(:note_free,
+                      except: [
+                        notes: [%{text: "note text",
+                                  animal_id: id_of(bovine: Insert.Species)}]])]
 
 #                                  %{text: "gelding"}]])]
     )
