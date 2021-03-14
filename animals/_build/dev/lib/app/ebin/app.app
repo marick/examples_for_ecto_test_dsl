@@ -1,0 +1,11 @@
+{application,app,
+             [{applications,[kernel,stdlib,elixir,logger,ecto_sql,postgrex]},
+              {description,"app"},
+              {modules,['Elixir.App.Application','Elixir.App.Repo',
+                        'Elixir.App.Schemas10.Named',
+                        'Elixir.App.Schemas20.Animal',
+                        'Elixir.App.Schemas20.Note',
+                        'Elixir.App.Schemas20.Species']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.App.Application',[]}}]}.

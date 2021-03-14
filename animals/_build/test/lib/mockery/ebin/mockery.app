@@ -1,0 +1,10 @@
+{application,mockery,
+             [{applications,[kernel,stdlib,elixir]},
+              {description,"Simple mocking library for asynchronous testing."},
+              {modules,['Elixir.Mockery','Elixir.Mockery.Assertions',
+                        'Elixir.Mockery.Error','Elixir.Mockery.History',
+                        'Elixir.Mockery.Macro','Elixir.Mockery.Proxy',
+                        'Elixir.Mockery.Proxy.MacroProxy',
+                        'Elixir.Mockery.Utils']},
+              {registered,[]},
+              {vsn,"2.3.1"}]}.
