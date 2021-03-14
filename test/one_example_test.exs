@@ -6,7 +6,8 @@ defmodule Examples.OneExampleTest do
     alias Examples.Schemas20.Insert.Animal.Tester
 
     
-    # Tester.check_workflow(:with_notes, trace: true)
+   Tester.params(:with_notes_2) |> IO.inspect
+#    Tester.check_workflow(:with_notes, trace: true)
   end
 
 end

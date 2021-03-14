@@ -3,6 +3,11 @@ defmodule Examples.Schemas20.Insert.Note do
 
   use EctoTestDSL.Variants.PhoenixGranular.Insert
 
+
+  def note(opts \\ []) do
+    from(een(note: __MODULE__), opts)
+  end
+
   def create_test_data do 
     start(
       module_under_test: Schemas.Note,
@@ -15,7 +20,7 @@ defmodule Examples.Schemas20.Insert.Note do
 
     workflow(                                         :validation_success,
       note: [
-                params(text: "note text", animal_id: 33)
+                params(text: "note text")
                 ]
     ) 
 

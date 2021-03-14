@@ -16,9 +16,9 @@
 
     workflow(                                              :success,
       add_note_to_animal: [
-        params_from_repo(note_free_animal, except: [notes: "gelding"]),
+        params_from(note_free_animal, except: [notes: "gelding"]),
         changeset(changes: [notes: "gelding"]),
-        fields_like(note_free_animal, except: [notes: "gelding"]),
+        fields_from(note_free_animal, except: [notes: "gelding"]),
         run: :skip
       ]
     #   # add_note_better: [

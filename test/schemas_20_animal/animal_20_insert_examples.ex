@@ -14,6 +14,8 @@ defmodule Examples.Schemas20.Insert.Animal do
       as_cast: [:name, :lock_uuid, :species_id]
     )
 
+
+    Insert.Note.note(except: [text: "oo"])    |> IO.inspect
     
     workflow(                                              :success,
       note_free: [params(name: "Bossie",
@@ -24,9 +26,14 @@ defmodule Examples.Schemas20.Insert.Animal do
       with_notes: [params_like(:note_free,
                       except: [
                         notes: [%{text: "note text",
-                                  animal_id: id_of(bovine: Insert.Species)}]])]
+                                  animal_id: id_of(bovine: Insert.Species)}]])],
 
-#                                  %{text: "gelding"}]])]
+      with_notes_2: [params_like(:note_free,
+                      except: [notes: [from(note: Insert.Note, except: [text: "oo"])]])],
+      with_notes_3: [params_like(:note_free,
+                      except: [notes: [Insert.Note.note]])]
+      # EctoTestDSL.Run.Rnode.ParamsFromRepo.new(een(note: Insert.Notes), [])]])]
+
     )
 
     workflow(                                         :constraint_error,
