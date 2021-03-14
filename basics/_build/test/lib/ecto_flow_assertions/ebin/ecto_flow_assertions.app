@@ -1,0 +1,10 @@
+{application,ecto_flow_assertions,
+             [{applications,[kernel,stdlib,elixir,logger,ecto,
+                             flow_assertions]},
+              {description,"Common Ecto schema and changeset assertions, written to be\neasily used in pipelines.\n"},
+              {modules,['Elixir.FlowAssertions.Ecto',
+                        'Elixir.FlowAssertions.Ecto.ChangesetA',
+                        'Elixir.FlowAssertions.Ecto.Messages',
+                        'Elixir.FlowAssertions.Ecto.SchemaA']},
+              {registered,[]},
+              {vsn,"0.1.0"}]}.
