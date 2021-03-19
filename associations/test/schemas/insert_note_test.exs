@@ -1,7 +1,7 @@
 defmodule Example.Insert.Note.Test do
   use ExUnit.Case, async: true
   alias Examples.Insert.Note.Tester
-  import Given
+  use MockeryExtras.Given
 
   test "creation" do
     given(Date.utc_today, return: ~D[2001-01-01])
