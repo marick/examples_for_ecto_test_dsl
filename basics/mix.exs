@@ -34,8 +34,7 @@ defmodule App.MixProject do
       {:ecto_test_dsl, "~> 0.1",
        path: "/Users/bem/src/ecto_test_dsl",
        only: :test
-      },
-      {:mockery, "~> 2.3.0", runtime: false},
+      }
     ]
   end
 end
