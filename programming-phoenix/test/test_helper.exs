@@ -7,6 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/phoenix14 for more book information.
 #---
 ExUnit.start()
+EctoTestDSL.start()
 
 Ecto.Adapters.SQL.Sandbox.mode(Rumbl.Repo, :manual)
 

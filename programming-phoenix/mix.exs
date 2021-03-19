@@ -33,7 +33,7 @@ defmodule Rumbl.Mixfile do
   end
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(:test), do: ["lib", "test/support", "test/rumbl"]
   defp elixirc_paths(_),     do: ["lib"]
 
   # Specifies your project dependencies.
@@ -51,7 +51,12 @@ defmodule Rumbl.Mixfile do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:pbkdf2_elixir, "~> 1.0"}
+      {:pbkdf2_elixir, "~> 1.0"},
+
+      {:ecto_test_dsl, "~> 0.1",
+       path: "/Users/bem/src/ecto_test_dsl",
+       only: :test
+      },
     ]
   end
 
