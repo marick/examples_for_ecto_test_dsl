@@ -10,10 +10,16 @@ defmodule Examples.Insert.Account do
       insert_with: fn _repo, params -> Accounts.register_user(params) end
     )
 
+    blank="can't be blank"
+
     workflow(                                         :validation_error,
-      note: [
-        params(name: "User", username: "", password: "secret")
-      ]
+      blank: [
+        params(name: "", username: "", password: ""),
+        changeset(
+          errors: [name: blank, username: blank, password: blank])
+      ],
+      
+      blank_2: [blanks([:name, :username, :password])]
     ) 
   end
 end
