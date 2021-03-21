@@ -4,7 +4,7 @@ defmodule Examples.Insert.Named do
 
   def create_test_data do 
     start(
-      module_under_test: Named,
+      api_module: Named,
       repo: App.Repo
     )
 

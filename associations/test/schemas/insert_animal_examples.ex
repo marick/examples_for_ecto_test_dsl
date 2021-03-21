@@ -6,7 +6,7 @@ defmodule Examples.Insert.Animal do
   
   def create_test_data do 
     start(
-      module_under_test: Schemas.Animal,
+      api_module: Schemas.Animal,
       repo: App.Repo
     )
 

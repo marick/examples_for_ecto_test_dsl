@@ -9,7 +9,8 @@
     note_free_animal = een(note_free: Insert.Animal)
     
     start(
-      module_under_test: Schemas.Animal,
+      api_module: Schemas.Animal,
+      schema: Schemas.Animal,
       repo: App.Repo,
       usually_ignore: [:lock_uuid, :inserted_at, :updated_at]
     )

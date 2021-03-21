@@ -5,7 +5,8 @@ defmodule Examples.Insert.Account do
 
   def create_test_data do 
     start(
-      module_under_test: Accounts,
+      api_module: Accounts,
+      schema: Accounts.User,
       repo: Repo,
       insert_with: fn _repo, params -> Accounts.register_user(params) end
     )
