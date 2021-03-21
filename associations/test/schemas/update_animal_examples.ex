@@ -18,7 +18,7 @@
       add_note_to_animal: [
         params_from(note_free_animal, except: [notes: "gelding"]),
         changeset(changes: [notes: "gelding"]),
-        fields_from(note_free_animal, except: [notes: "gelding"]),
+        result_matches(note_free_animal, except: [notes: "gelding"]),
         run: :skip
       ]
     #   # add_note_better: [
