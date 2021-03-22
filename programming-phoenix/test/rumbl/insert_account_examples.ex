@@ -20,7 +20,17 @@ defmodule Examples.Insert.Account do
           errors: [name: blank, username: blank, password: blank])
       ],
       
-      blank_2: [blanks([:name, :username, :password])]
+      blank_2: [blanks([:name, :username, :password])],
+
+      blank_3: [
+        blanks([:name, :username, :password]),
+        postcheck: fn _ ->
+          import ExUnit.Assertions
+          assert 1 == 1
+        end
+      ]
+                   
+      
     ) 
   end
 end
