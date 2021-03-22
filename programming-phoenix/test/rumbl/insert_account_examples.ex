@@ -11,9 +11,18 @@ defmodule Examples.Insert.Account do
       insert_with: fn _repo, params -> Accounts.register_user(params) end
     )
 
-    blank="can't be blank"
+    field_transformations(
+      as_cast: [:name, :username]
+    )
 
-    workflow(                                         :validation_error,
+    workflow(                                         :success,
+      eva: [
+        params(name: "User", username: "eva", password: "secret"),
+        result(name: "User", username: "eva")
+      ])
+
+    blank="can't be blank"
+    workflow(                                         :error,
       blank: [
         params(name: "", username: "", password: ""),
         changeset(
@@ -25,10 +34,11 @@ defmodule Examples.Insert.Account do
       blank_3: [
         blanks([:name, :username, :password]),
         postcheck: fn _ ->
-          import ExUnit.Assertions
-          assert 1 == 1
+          assert Accounts.list_users == []
         end
       ]
+
+      
                    
       
     ) 
