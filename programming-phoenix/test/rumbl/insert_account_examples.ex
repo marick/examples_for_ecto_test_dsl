@@ -19,7 +19,12 @@ defmodule Examples.Insert.Account do
       eva: [
         params(name: "User", username: "eva", password: "secret"),
         result(name: "User", username: "eva")
+      ],
+
+      eva_2: [
+        params(name: "User", username: "eva", password: "secret")
       ])
+      
 
     blank="can't be blank"
     workflow(                                         :error,
@@ -36,11 +41,19 @@ defmodule Examples.Insert.Account do
         postcheck: fn _ ->
           assert Accounts.list_users == []
         end
-      ]
+      ],
 
-      
-                   
-      
+      unique: [
+        previously(insert: :eva),
+        params_like(:eva),
+        changeset(error: [username: "has already been taken"])
+      ],
+
+
+      unique_2: [
+        insert_twice(:eva),
+        changeset(error: [username: "has already been taken"])
+      ]
     ) 
   end
 end

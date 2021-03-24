@@ -3,6 +3,6 @@ defmodule Examples.OneExampleTest do
 
   test "one" do 
     alias Examples.Insert.Account.Tester
-    Tester.check_workflow(:eva, trace: true)
+    Tester.check_workflow(:unique, trace: true)
   end
 end
