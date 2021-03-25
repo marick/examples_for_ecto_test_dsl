@@ -23,7 +23,12 @@ defmodule Examples.Insert.Account do
     # end
 
     workflow(                                         :success,
-      eva: [  # a literal translation
+      eva: [  # a literal translation. Note that the final
+              # check is always made for a `:success` case.
+              # (Actually, its check is more general, in that
+              # it doesn't require the `Users` list to have
+              # started empty. That's useful when one `User` has
+              # a foreign key to another.)
         params(name: "User", username: "eva", password: "secret"),
         result(name: "User", username: "eva")
       ],
@@ -45,7 +50,7 @@ defmodule Examples.Insert.Account do
 
     blank="can't be blank"
     workflow(                                         :error,
-      blank: [   # An almost-literal translation
+      blank: [   # An almost-literal translation. 
         params(name: "", username: "", password: ""),
         changeset(
           errors: [name: blank, username: blank, password: blank])
